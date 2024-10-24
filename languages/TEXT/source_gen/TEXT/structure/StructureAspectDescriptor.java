@@ -94,6 +94,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForGrammar() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("TEXT", "Grammar", 0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x6e4da4746dc2c648L);
     b.class_(false, false, true);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:d3544938-0597-4a20-adba-4dc9a199f25b(TEXT.structure)/7948189737343436360");
     b.version(3);
     b.aggregate("rules", 0x6e4da4746dc2c649L).target(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c1fL).optional(false).ordered(true).multiple(true).origin("7948189737343436361").done();

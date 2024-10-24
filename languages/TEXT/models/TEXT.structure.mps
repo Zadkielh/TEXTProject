@@ -200,6 +200,9 @@
       <property role="20lbJX" value="fLJekj6/_1__n" />
       <ref role="20lvS9" node="1M0Jf9BI5Kv" resolve="GrammarRule" />
     </node>
+    <node concept="PrWs8" id="6TdD7hHLR9e" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
   </node>
 </model>
 

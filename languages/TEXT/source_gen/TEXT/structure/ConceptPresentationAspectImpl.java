@@ -34,7 +34,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.Grammar:
         if (props_Grammar == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("Grammar");
+          cpb.presentationByName();
           props_Grammar = cpb.create();
         }
         return props_Grammar;
