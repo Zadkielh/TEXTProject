@@ -4,6 +4,7 @@
     <projectModules>
       <modulePath path="$PROJECT_DIR$/languages/TEXT.runtime/TEXT.runtime.msd" folder="" />
       <modulePath path="$PROJECT_DIR$/languages/TEXT/TEXT.mpl" folder="" />
+      <modulePath path="$USER_HOME$/Documents/GitHub/mps-demo-main/languages/JSONSupport/JSONSupport.mpl" folder="" />
     </projectModules>
   </component>
 </project>

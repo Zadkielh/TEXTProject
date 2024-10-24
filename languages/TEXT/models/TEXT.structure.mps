@@ -60,7 +60,7 @@
     <property role="EcuMT" value="2053849179389189151" />
     <property role="TrG5h" value="GrammarRule" />
     <property role="34LRSv" value="Rule" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="1M0Jf9BI5KP" role="1TKVEi">
       <property role="IQ2ns" value="2053849179389189173" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -76,7 +76,7 @@
     <property role="EcuMT" value="2053849179389189154" />
     <property role="TrG5h" value="Production" />
     <property role="R5$K7" value="true" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
   </node>
   <node concept="1TIwiD" id="1M0Jf9BI5K_">
     <property role="EcuMT" value="2053849179389189157" />
@@ -192,7 +192,7 @@
     <property role="EcuMT" value="7948189737343436360" />
     <property role="TrG5h" value="Grammar" />
     <property role="19KtqR" value="true" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="6TdD7hHKGp9" role="1TKVEi">
       <property role="IQ2ns" value="7948189737343436361" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
