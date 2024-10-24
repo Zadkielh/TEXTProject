@@ -19,14 +19,16 @@ public class ConstraintsAspectDescriptor extends BaseConstraintsAspectDescriptor
     SAbstractConcept cncpt = concept;
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return new GrammarRule_Constraints();
+        return new Alternation_Constraints();
       case 1:
-        return new NonTerminal_Constraints();
+        return new GrammarRule_Constraints();
       case 2:
+        return new NonTerminal_Constraints();
+      case 3:
         return new Terminal_Constraints();
       default:
     }
     return new BaseConstraintsDescriptor(concept);
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c1fL), MetaIdFactory.conceptId(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c28L), MetaIdFactory.conceptId(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c25L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267d372a0L), MetaIdFactory.conceptId(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c1fL), MetaIdFactory.conceptId(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c28L), MetaIdFactory.conceptId(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c25L)).seal();
 }

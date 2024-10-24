@@ -9,9 +9,14 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
+  private ConceptPresentation props_Alternation;
+  private ConceptPresentation props_Grammar;
   private ConceptPresentation props_GrammarRule;
+  private ConceptPresentation props_Grouping;
   private ConceptPresentation props_NonTerminal;
+  private ConceptPresentation props_Optional;
   private ConceptPresentation props_Production;
+  private ConceptPresentation props_Sequence;
   private ConceptPresentation props_Terminal;
 
   @Override
@@ -19,6 +24,20 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   public ConceptPresentation getDescriptor(SAbstractConcept c) {
     StructureAspectDescriptor structureDescriptor = (StructureAspectDescriptor) myLanguageRuntime.getAspect(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.class);
     switch (structureDescriptor.internalIndex(c)) {
+      case LanguageConceptSwitch.Alternation:
+        if (props_Alternation == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("Alternation");
+          props_Alternation = cpb.create();
+        }
+        return props_Alternation;
+      case LanguageConceptSwitch.Grammar:
+        if (props_Grammar == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("Grammar");
+          props_Grammar = cpb.create();
+        }
+        return props_Grammar;
       case LanguageConceptSwitch.GrammarRule:
         if (props_GrammarRule == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -26,6 +45,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_GrammarRule = cpb.create();
         }
         return props_GrammarRule;
+      case LanguageConceptSwitch.Grouping:
+        if (props_Grouping == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("Grouping");
+          props_Grouping = cpb.create();
+        }
+        return props_Grouping;
       case LanguageConceptSwitch.NonTerminal:
         if (props_NonTerminal == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -33,12 +59,26 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NonTerminal = cpb.create();
         }
         return props_NonTerminal;
+      case LanguageConceptSwitch.Optional:
+        if (props_Optional == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("Optional");
+          props_Optional = cpb.create();
+        }
+        return props_Optional;
       case LanguageConceptSwitch.Production:
         if (props_Production == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           props_Production = cpb.create();
         }
         return props_Production;
+      case LanguageConceptSwitch.Sequence:
+        if (props_Sequence == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("Sequence");
+          props_Sequence = cpb.create();
+        }
+        return props_Sequence;
       case LanguageConceptSwitch.Terminal:
         if (props_Terminal == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

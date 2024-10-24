@@ -4,19 +4,28 @@ package TEXT.structure;
 
 import jetbrains.mps.smodel.runtime.BaseStructureAspectDescriptor;
 import jetbrains.mps.smodel.runtime.ConceptDescriptor;
+import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
 import java.util.Collection;
 import java.util.Arrays;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
+import jetbrains.mps.smodel.runtime.DataTypeDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.impl.ConceptDescriptorBuilder2;
+import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
+  /*package*/ final ConceptDescriptor myConceptAlternation = createDescriptorForAlternation();
+  /*package*/ final ConceptDescriptor myConceptGrammar = createDescriptorForGrammar();
   /*package*/ final ConceptDescriptor myConceptGrammarRule = createDescriptorForGrammarRule();
+  /*package*/ final ConceptDescriptor myConceptGrouping = createDescriptorForGrouping();
   /*package*/ final ConceptDescriptor myConceptNonTerminal = createDescriptorForNonTerminal();
+  /*package*/ final ConceptDescriptor myConceptOptional = createDescriptorForOptional();
   /*package*/ final ConceptDescriptor myConceptProduction = createDescriptorForProduction();
+  /*package*/ final ConceptDescriptor myConceptSequence = createDescriptorForSequence();
   /*package*/ final ConceptDescriptor myConceptTerminal = createDescriptorForTerminal();
+  /*package*/ final EnumerationDescriptor myEnumerationSequenceTypes = new EnumerationDescriptor_SequenceTypes();
   private final LanguageConceptSwitch myIndexSwitch;
 
   public StructureAspectDescriptor() {
@@ -31,19 +40,29 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptGrammarRule, myConceptNonTerminal, myConceptProduction, myConceptTerminal);
+    return Arrays.asList(myConceptAlternation, myConceptGrammar, myConceptGrammarRule, myConceptGrouping, myConceptNonTerminal, myConceptOptional, myConceptProduction, myConceptSequence, myConceptTerminal);
   }
 
   @Override
   @Nullable
   public ConceptDescriptor getDescriptor(SConceptId id) {
     switch (myIndexSwitch.index(id)) {
+      case LanguageConceptSwitch.Alternation:
+        return myConceptAlternation;
+      case LanguageConceptSwitch.Grammar:
+        return myConceptGrammar;
       case LanguageConceptSwitch.GrammarRule:
         return myConceptGrammarRule;
+      case LanguageConceptSwitch.Grouping:
+        return myConceptGrouping;
       case LanguageConceptSwitch.NonTerminal:
         return myConceptNonTerminal;
+      case LanguageConceptSwitch.Optional:
+        return myConceptOptional;
       case LanguageConceptSwitch.Production:
         return myConceptProduction;
+      case LanguageConceptSwitch.Sequence:
+        return myConceptSequence;
       case LanguageConceptSwitch.Terminal:
         return myConceptTerminal;
       default:
@@ -51,14 +70,38 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     }
   }
 
+  @Override
+  public Collection<DataTypeDescriptor> getDataTypeDescriptors() {
+    return Arrays.asList(myEnumerationSequenceTypes);
+  }
 
   /*package*/ int internalIndex(SAbstractConcept c) {
     return myIndexSwitch.index(c);
   }
 
+  private static ConceptDescriptor createDescriptorForAlternation() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("TEXT", "Alternation", 0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267d372a0L);
+    b.class_(false, false, false);
+    // extends: TEXT.structure.Production
+    b.super_(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L);
+    b.origin("r:d3544938-0597-4a20-adba-4dc9a199f25b(TEXT.structure)/2053849179390964384");
+    b.version(3);
+    b.aggregate("firstOption", 0x1c80bcf267d372a1L).target(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L).optional(false).ordered(true).multiple(false).origin("2053849179390964385").done();
+    b.aggregate("secondOption", 0x6e4da4746dbf8db3L).target(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L).optional(false).ordered(true).multiple(false).origin("7948189737343225267").done();
+    b.aggregate("additionalOptions", 0x6e4da4746dbf8db4L).target(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L).optional(true).ordered(true).multiple(true).origin("7948189737343225268").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForGrammar() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("TEXT", "Grammar", 0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x6e4da4746dc2c648L);
+    b.class_(false, false, true);
+    b.origin("r:d3544938-0597-4a20-adba-4dc9a199f25b(TEXT.structure)/7948189737343436360");
+    b.version(3);
+    b.aggregate("rules", 0x6e4da4746dc2c649L).target(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c1fL).optional(false).ordered(true).multiple(true).origin("7948189737343436361").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForGrammarRule() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("TEXT", "GrammarRule", 0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c1fL);
-    b.class_(false, false, true);
+    b.class_(false, false, false);
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:d3544938-0597-4a20-adba-4dc9a199f25b(TEXT.structure)/2053849179389189151");
     b.version(3);
@@ -66,9 +109,19 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("Rule");
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForGrouping() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("TEXT", "Grouping", 0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267d372a9L);
+    b.class_(false, false, false);
+    // extends: TEXT.structure.Production
+    b.super_(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L);
+    b.origin("r:d3544938-0597-4a20-adba-4dc9a199f25b(TEXT.structure)/2053849179390964393");
+    b.version(3);
+    b.aggregate("group", 0x1c80bcf267d372aaL).target(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L).optional(false).ordered(true).multiple(true).origin("2053849179390964394").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForNonTerminal() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("TEXT", "NonTerminal", 0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c28L);
-    b.class_(false, false, true);
+    b.class_(false, false, false);
     // extends: TEXT.structure.Production
     b.super_(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L);
     b.origin("r:d3544938-0597-4a20-adba-4dc9a199f25b(TEXT.structure)/2053849179389189160");
@@ -76,11 +129,32 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.associate("reference", 0x1c80bcf267cd81ebL).target(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c1fL).optional(false).origin("2053849179390575083").done();
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForOptional() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("TEXT", "Optional", 0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267d372a4L);
+    b.class_(false, false, false);
+    // extends: TEXT.structure.Production
+    b.super_(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L);
+    b.origin("r:d3544938-0597-4a20-adba-4dc9a199f25b(TEXT.structure)/2053849179390964388");
+    b.version(3);
+    b.aggregate("child", 0x6e4da4746dc12996L).target(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L).optional(false).ordered(true).multiple(false).origin("7948189737343330710").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForProduction() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("TEXT", "Production", 0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L);
     b.class_(false, true, false);
     b.origin("r:d3544938-0597-4a20-adba-4dc9a199f25b(TEXT.structure)/2053849179389189154");
     b.version(3);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForSequence() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("TEXT", "Sequence", 0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267d372a2L);
+    b.class_(false, false, false);
+    // extends: TEXT.structure.Production
+    b.super_(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L);
+    b.origin("r:d3544938-0597-4a20-adba-4dc9a199f25b(TEXT.structure)/2053849179390964386");
+    b.version(3);
+    b.property("repitition", 0x6e4da4746dc12997L).type(MetaIdFactory.dataTypeId(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267d372a6L)).origin("7948189737343330711").done();
+    b.aggregate("repeatedProduction", 0x6e4da4746dc12998L).target(0x3081af84875b46f6L, 0xbdd6db0e8277a296L, 0x1c80bcf267b85c22L).optional(false).ordered(true).multiple(false).origin("7948189737343330712").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForTerminal() {

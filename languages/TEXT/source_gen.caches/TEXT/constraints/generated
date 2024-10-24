@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-6irwy0g9egul4b7dv51si0oj0tc53b9">
-  <files names="ConstraintsAspectDescriptor.java:GrammarRule_Constraints.java:NonTerminal_Constraints.java:Terminal_Constraints.java" />
+<product version="3" modelHash="-7s9k3uglpbq4ixxpgjhkfw9g4jyclvf">
+  <files names="Alternation_Constraints.java:ConstraintsAspectDescriptor.java:GrammarRule_Constraints.java:NonTerminal_Constraints.java:Terminal_Constraints.java" />
 </product>
 
