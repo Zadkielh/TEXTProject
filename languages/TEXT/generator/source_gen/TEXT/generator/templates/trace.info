@@ -77,14 +77,14 @@
   </root>
   <root nodeRef="r:82c40b76-063e-4ca5-8cd7-dec5f317bd84(TEXT.generator.templates@generator)/6220420374715690819">
     <file name="QueriesGenerated.java">
-      <node id="6220420374715890322" at="47,93,48,143" concept="1" />
-      <node id="6220420374715890312" at="122,3,123,60" concept="0" />
-      <node id="6220420374715890312" at="140,15,141,70" concept="1" />
-      <node id="6220420374715890315" at="47,0,50,0" concept="2" trace="referenceMacro_GetReferent_3_0#(Ljetbrains/mps/generator/template/ReferenceMacroContext;)Ljava/lang/Object;" />
-      <scope id="6220420374715890316" at="47,93,48,143" />
-      <scope id="6220420374715890312" at="140,15,141,70" />
-      <scope id="6220420374715890315" at="47,0,50,0">
-        <var name="_context" id="6220420374715890315" />
+      <node id="6220420374715996570" at="47,93,48,143" concept="1" />
+      <node id="6220420374715996560" at="122,3,123,60" concept="0" />
+      <node id="6220420374715996560" at="140,15,141,70" concept="1" />
+      <node id="6220420374715996563" at="47,0,50,0" concept="2" trace="referenceMacro_GetReferent_3_0#(Ljetbrains/mps/generator/template/ReferenceMacroContext;)Ljava/lang/Object;" />
+      <scope id="6220420374715996564" at="47,93,48,143" />
+      <scope id="6220420374715996560" at="140,15,141,70" />
+      <scope id="6220420374715996563" at="47,0,50,0">
+        <var name="_context" id="6220420374715996563" />
       </scope>
     </file>
   </root>
